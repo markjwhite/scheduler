@@ -29,6 +29,7 @@ export default function useApplicationData() {
           ...state,
           appointments
         });
+        updateSpots(state.days, id, appointments)
       })
   };
 
@@ -36,7 +37,7 @@ export default function useApplicationData() {
 
     const appointment = {
       ...state.appointments[id],
-      interview: { ...interview }
+      interview: null
     };
     const appointments = {
       ...state.appointments,
@@ -48,8 +49,23 @@ export default function useApplicationData() {
           ...state,
           appointments
         });
+        updateSpots(state.days, id, appointments)
       })
   }
+
+  const updateSpots = (days, id, appointments) => {
+    const updateDay = days.find(day => day.appointments.includes(id))
+    console.log(updateDay)
+
+    let numOfSpots = 0
+    for (const appointment in appointments) {
+      if (!appointments[appointment].interview && updateDay.appointments.includes(appointments[appointment].id)) {
+        numOfSpots++
+      }
+    }
+    return { ...updateDay, spots: numOfSpots }
+  }
+
 
   useEffect(() => {
     Promise.all([
