@@ -15,7 +15,7 @@ Interview scheduler is an app that was created using _Create React App_ build to
 
 Create New Appointments
 
-https://user-images.githubusercontent.com/27116620/122280131-dce07780-ceb6-11eb-8d4d-818becdb3a05.mov
+https://user-images.githubusercontent.com/27116620/122281062-d9012500-ceb7-11eb-8db4-164192bfc5e6.mov
 
 Edit Existing Appointments
 
